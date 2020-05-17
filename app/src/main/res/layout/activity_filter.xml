@@ -127,50 +127,76 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingStart="20dp"
-            android:paddingEnd="20dp"
-            android:orientation="horizontal">
+            android:background="@android:color/transparent"
+            android:orientation="vertical">
 
-            <Button
-                android:layout_width="65dp"
+            <com.addisonelliott.segmentedbutton.SegmentedButtonGroup
+                android:id="@+id/buttonGroup_rounded"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/button_filter"
-                android:fontFamily="@font/regular"
-                android:gravity="center"
-                android:text="Any"
-                android:textColor="#FFFCFC"
-                android:textSize="12sp" />
-                <Button
-                    android:layout_marginStart="10dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="12sp"
-                    android:textColor="#FFFCFC"
-                    android:gravity="center"
-                    android:background="@drawable/button_filter"
-                    android:fontFamily="@font/regular"
-                    android:text="Apartment"/>
-                <Button
-                    android:layout_marginStart="10dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="12sp"
-                    android:textColor="#FFFCFC"
-                    android:gravity="center"
-                    android:background="@drawable/button_filter"
-                    android:fontFamily="@font/regular"
-                    android:text="Room"/>
+                android:layout_gravity="center"
+                android:layout_margin="4dp"
+                app:draggable="true"
+                app:selectionAnimationDuration="50"
+                app:selectionAnimationInterpolator="bounce"
+                app:radius="30dp"
+                app:ripple="true"
+                app:rippleColor="#5A94E9"
+                app:selectedBackground="#6CADF8"
+                app:selectedButtonRadius="5dp">
 
-                <Button
-                    android:layout_marginStart="10dp"
+                <com.addisonelliott.segmentedbutton.SegmentedButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="12sp"
-                    android:textColor="#FFFCFC"
-                    android:gravity="center"
-                    android:background="@drawable/button_filter"
                     android:fontFamily="@font/regular"
-                    android:text="House"/>
+                    android:padding="8dp"
+                    android:paddingStart="5dp"
+                    android:paddingEnd="5dp"
+                    app:rounded="false"
+                    app:selectedTextColor="@android:color/white"
+                    app:text="Any"
+                    app:textColor="@android:color/black"
+                    app:textSize="20sp" />
+
+                <com.addisonelliott.segmentedbutton.SegmentedButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/regular"
+                    android:padding="8dp"
+                    android:layout_marginStart="10dp"
+                    app:rounded="false"
+                    app:selectedTextColor="@android:color/white"
+                    app:text="Apartment"
+                    app:textColor="@android:color/black"
+                    app:textSize="20sp" />
+
+                <com.addisonelliott.segmentedbutton.SegmentedButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/regular"
+                    android:padding="8dp"
+                    android:layout_marginStart="10dp"
+                    app:rounded="false"
+                    app:selectedTextColor="@android:color/white"
+                    app:text="Room"
+                    app:textColor="@android:color/black"
+                    app:textSize="20sp" />
+
+                <com.addisonelliott.segmentedbutton.SegmentedButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/regular"
+                    android:padding="8dp"
+                    android:layout_marginStart="10dp"
+                    app:rounded="false"
+                    app:selectedTextColor="@android:color/white"
+                    app:text="House"
+                    app:textColor="@android:color/black"
+                    app:textSize="20sp" />
+
+            </com.addisonelliott.segmentedbutton.SegmentedButtonGroup>
+
+
         </LinearLayout>
 
 
@@ -227,63 +253,84 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingStart="20dp"
-            android:paddingEnd="20dp"
-            android:orientation="horizontal">
-
-            <Button
-                android:layout_width="55dp"
-                android:layout_height="match_parent"
-                android:background="@drawable/button_filter"
-                android:fontFamily="@font/regular"
-                android:gravity="center"
-                android:text="Any"
-                android:textColor="#FFFCFC"
-                android:textSize="16sp" />
-
-            <Button
-                android:layout_marginStart="10dp"
-                android:layout_width="55dp"
+            android:background="@android:color/transparent"
+            android:orientation="vertical">
+            <com.addisonelliott.segmentedbutton.SegmentedButtonGroup
+                android:id="@+id/buttonGroup_rounded2"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/button_filter"
-                android:fontFamily="@font/regular"
-                android:gravity="center"
-                android:text="1"
-                android:textColor="#FFFCFC"
-                android:textSize="16sp" />
+                android:layout_gravity="center"
+                android:layout_margin="4dp"
+                app:draggable="true"
+                app:radius="30dp"
+                app:ripple="true"
+                app:selectionAnimationDuration="50"
+                app:selectionAnimationInterpolator="bounce"
+                app:rippleColor="#5A94E9"
+                app:selectedBackground="#6CADF8"
+                app:selectedButtonRadius="5dp">
 
-            <Button
-                android:layout_marginStart="10dp"
-                android:layout_width="55dp"
-                android:layout_height="wrap_content"
-                android:background="@drawable/button_filter"
-                android:fontFamily="@font/regular"
-                android:gravity="center"
-                android:text="2"
-                android:textColor="#FFFCFC"
-                android:textSize="16sp" />
+                <com.addisonelliott.segmentedbutton.SegmentedButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/regular"
+                    android:padding="8dp"
+                    android:paddingStart="5dp"
+                    android:paddingEnd="5dp"
+                    app:rounded="false"
+                    app:selectedTextColor="@android:color/white"
+                    app:text="Any"
+                    app:textColor="@android:color/black"
+                    app:textSize="20sp" />
 
-            <Button
-                android:layout_marginStart="10dp"
-                android:layout_width="55dp"
-                android:layout_height="wrap_content"
-                android:background="@drawable/button_filter"
-                android:fontFamily="@font/regular"
-                android:gravity="center"
-                android:text="3"
-                android:textColor="#FFFCFC"
-                android:textSize="16sp" />
+                <com.addisonelliott.segmentedbutton.SegmentedButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/regular"
+                    android:padding="8dp"
+                    android:layout_marginStart="30dp"
+                    app:rounded="false"
+                    app:selectedTextColor="@android:color/white"
+                    app:text="1"
+                    app:textColor="@android:color/black"
+                    app:textSize="20sp" />
 
-            <Button
-                android:layout_marginStart="10dp"
-                android:layout_width="55dp"
-                android:layout_height="wrap_content"
-                android:textSize="16sp"
-                android:textColor="#FFFCFC"
-                android:gravity="center"
-                android:background="@drawable/button_filter"
-                android:fontFamily="@font/regular"
-                android:text="4"/>
+                <com.addisonelliott.segmentedbutton.SegmentedButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/regular"
+                    android:padding="8dp"
+                    android:layout_marginStart="30dp"
+                    app:rounded="false"
+                    app:selectedTextColor="@android:color/white"
+                    app:text="2"
+                    app:textColor="@android:color/black"
+                    app:textSize="20sp" />
+
+                <com.addisonelliott.segmentedbutton.SegmentedButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/regular"
+                    android:padding="8dp"
+                    android:layout_marginStart="30dp"
+                    app:rounded="false"
+                    app:selectedTextColor="@android:color/white"
+                    app:text="3"
+                    app:textColor="@android:color/black"
+                    app:textSize="20sp" />
+                <com.addisonelliott.segmentedbutton.SegmentedButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/regular"
+                    android:padding="8dp"
+                    android:layout_marginStart="30dp"
+                    app:rounded="false"
+                    app:selectedTextColor="@android:color/white"
+                    app:text="4"
+                    app:textColor="@android:color/black"
+                    app:textSize="20sp" />
+
+            </com.addisonelliott.segmentedbutton.SegmentedButtonGroup>
         </LinearLayout>
 
     </LinearLayout>
@@ -314,66 +361,84 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingStart="20dp"
-            android:paddingEnd="20dp"
-            android:gravity="start">
+            android:background="@android:color/transparent"
+            android:orientation="vertical">
+            <com.addisonelliott.segmentedbutton.SegmentedButtonGroup
+                android:id="@+id/buttonGroup_rounded3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="4dp"
+                app:draggable="true"
+                app:radius="30dp"
+                app:ripple="true"
+                app:rippleColor="#5A94E9"
+                app:selectedBackground="#6CADF8"
+                app:selectedButtonRadius="5dp"
+                app:selectionAnimationDuration="50"
+                app:selectionAnimationInterpolator="bounce">
 
-            <Button
-                android:id="@+id/buttonAnyBR"
-                android:layout_width="55dp"
-                android:layout_height="wrap_content"
-                android:textSize="16sp"
-                android:textColor="#FFFCFC"
-                android:gravity="center"
-                android:background="@drawable/button_filter"
-                android:fontFamily="@font/regular"
-                android:text="Any"/>
-            <Button
-                android:id="@+id/button1BR"
-                android:layout_marginStart="10dp"
-                android:layout_width="55dp"
-                android:layout_height="wrap_content"
-                android:textSize="16sp"
-                android:textColor="#FFFCFC"
-                android:gravity="center"
-                android:background="@drawable/button_filter"
-                android:fontFamily="@font/regular"
-                android:text="1"/>
-            <Button
-                android:id="@+id/button2BR"
-                android:layout_marginStart="10dp"
-                android:layout_width="55dp"
-                android:layout_height="wrap_content"
-                android:textSize="16sp"
-                android:textColor="#FFFCFC"
-                android:gravity="center"
-                android:background="@drawable/button_filter"
-                android:fontFamily="@font/regular"
-                android:text="2"/>
+                <com.addisonelliott.segmentedbutton.SegmentedButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/regular"
+                    android:padding="8dp"
+                    android:paddingStart="5dp"
+                    android:paddingEnd="5dp"
+                    app:rounded="false"
+                    app:selectedTextColor="@android:color/white"
+                    app:text="Any"
+                    app:textColor="@android:color/black"
+                    app:textSize="20sp" />
 
-            <Button
-                android:id="@+id/button3BR"
-                android:layout_marginStart="10dp"
-                android:layout_width="55dp"
-                android:layout_height="wrap_content"
-                android:textSize="16sp"
-                android:textColor="#FFFCFC"
-                android:gravity="center"
-                android:background="@drawable/button_filter"
-                android:fontFamily="@font/regular"
-                android:text="3"/>
-            <Button
-                android:id="@+id/button4BR"
-                android:layout_marginStart="10dp"
-                android:layout_width="55dp"
-                android:layout_height="wrap_content"
-                android:textSize="16sp"
-                android:textColor="#FFFCFC"
-                android:gravity="center"
-                android:background="@drawable/button_filter"
-                android:fontFamily="@font/regular"
-                android:text="4"/>
+                <com.addisonelliott.segmentedbutton.SegmentedButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/regular"
+                    android:padding="8dp"
+                    android:layout_marginStart="30dp"
+                    app:rounded="false"
+                    app:selectedTextColor="@android:color/white"
+                    app:text="1"
+                    app:textColor="@android:color/black"
+                    app:textSize="20sp" />
 
+                <com.addisonelliott.segmentedbutton.SegmentedButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/regular"
+                    android:padding="8dp"
+                    android:layout_marginStart="30dp"
+                    app:rounded="false"
+                    app:selectedTextColor="@android:color/white"
+                    app:text="2"
+                    app:textColor="@android:color/black"
+                    app:textSize="20sp" />
+
+                <com.addisonelliott.segmentedbutton.SegmentedButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/regular"
+                    android:padding="8dp"
+                    android:layout_marginStart="30dp"
+                    app:rounded="false"
+                    app:selectedTextColor="@android:color/white"
+                    app:text="3"
+                    app:textColor="@android:color/black"
+                    app:textSize="20sp" />
+                <com.addisonelliott.segmentedbutton.SegmentedButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/regular"
+                    android:padding="8dp"
+                    android:layout_marginStart="30dp"
+                    app:rounded="false"
+                    app:selectedTextColor="@android:color/white"
+                    app:text="4"
+                    app:textColor="@android:color/black"
+                    app:textSize="20sp" />
+
+            </com.addisonelliott.segmentedbutton.SegmentedButtonGroup>
         </LinearLayout>
 
     </LinearLayout>
