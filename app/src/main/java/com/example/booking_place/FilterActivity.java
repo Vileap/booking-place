@@ -18,6 +18,8 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.addisonelliott.segmentedbutton.SegmentedButtonGroup;
+
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -27,12 +29,13 @@ public class FilterActivity extends Activity implements AdapterView.OnItemSelect
 
     Button bRbuttonAny, bRbutton1, bRbutton2, bRbutton3, bRbutton4;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_filter);
 
-        ImageButton backButton = (ImageButton) findViewById(R.id.backMainFilter);
+        ImageButton backButton = findViewById(R.id.backMainFilter);
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -96,6 +99,8 @@ public class FilterActivity extends Activity implements AdapterView.OnItemSelect
     public void onNothingSelected(AdapterView<?> parent) {
 
     }
+
+
 
 
 }

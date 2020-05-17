@@ -132,45 +132,45 @@
             android:orientation="horizontal">
 
             <Button
-                android:layout_width="55dp"
-                android:layout_height="match_parent"
+                android:layout_width="65dp"
+                android:layout_height="wrap_content"
                 android:background="@drawable/button_filter"
                 android:fontFamily="@font/regular"
                 android:gravity="center"
                 android:text="Any"
                 android:textColor="#FFFCFC"
                 android:textSize="12sp" />
-            <Button
-                android:layout_marginStart="10dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="12sp"
-                android:textColor="#FFFCFC"
-                android:gravity="center"
-                android:background="@drawable/button_filter"
-                android:fontFamily="@font/regular"
-                android:text="Apartment"/>
-            <Button
-                android:layout_marginStart="10dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="12sp"
-                android:textColor="#FFFCFC"
-                android:gravity="center"
-                android:background="@drawable/button_filter"
-                android:fontFamily="@font/regular"
-                android:text="Room"/>
+                <Button
+                    android:layout_marginStart="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="12sp"
+                    android:textColor="#FFFCFC"
+                    android:gravity="center"
+                    android:background="@drawable/button_filter"
+                    android:fontFamily="@font/regular"
+                    android:text="Apartment"/>
+                <Button
+                    android:layout_marginStart="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="12sp"
+                    android:textColor="#FFFCFC"
+                    android:gravity="center"
+                    android:background="@drawable/button_filter"
+                    android:fontFamily="@font/regular"
+                    android:text="Room"/>
 
-            <Button
-                android:layout_marginStart="10dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="12sp"
-                android:textColor="#FFFCFC"
-                android:gravity="center"
-                android:background="@drawable/button_filter"
-                android:fontFamily="@font/regular"
-                android:text="House"/>
+                <Button
+                    android:layout_marginStart="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="12sp"
+                    android:textColor="#FFFCFC"
+                    android:gravity="center"
+                    android:background="@drawable/button_filter"
+                    android:fontFamily="@font/regular"
+                    android:text="House"/>
         </LinearLayout>
 
 
