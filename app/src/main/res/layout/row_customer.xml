@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:tag="cards main container">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="10dp">
+
+        <ImageView
+            android:layout_width="250dp"
+            android:layout_height="200dp"
+            android:id="@+id/image"
+            android:layout_gravity="center"
+            android:src="@mipmap/ic_launcher"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/titleView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="Title"
+                android:textStyle="bold"
+                android:textColor="#000000"
+                android:textSize="20sp"
+                android:fontFamily="@font/regular"/>
+            <TextView
+                android:id="@+id/locationText"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="location"
+                android:textSize="18sp"
+                android:fontFamily="@font/regular"/>
+            <TextView
+                android:id="@+id/locationPrice"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="price"
+                android:fontFamily="@font/regular"
+                android:textSize="16sp"
+                android:textColor="#30a7f0"/>
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+</LinearLayout>

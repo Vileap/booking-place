@@ -1,0 +1,403 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:layout_weight="6"
+    tools:context=".FilterActivity">
+
+    <LinearLayout
+        android:layout_weight="0.5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+
+        <LinearLayout
+            android:layout_weight="3"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="horizontal">
+            <ImageButton
+                android:id="@+id/backMainFilter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                android:src="@drawable/ic_arrow"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:textColor="#000000"
+                android:textSize="20sp"
+                android:text="Back"/>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_weight="2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#000000"
+            android:textSize="20sp"
+            android:text="Filter"/>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_weight="3"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Reset"
+                android:textColor="#000000"
+                android:textSize="20sp"
+                android:gravity="center"/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_weight="0"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="20dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="left"
+                android:textSize="20sp"
+                android:textColor="#000000"
+                android:fontFamily="@font/regular"
+                android:text="Locations"
+                android:paddingBottom="10dp"/>
+            <EditText
+                android:padding="10dp"
+                android:layout_width="370dp"
+                android:layout_height="40dp"
+                android:textSize="16sp"
+                android:textColor="#000000"
+                android:gravity="start|center"
+                android:background="@drawable/filter_search"
+                android:fontFamily="@font/regular"
+                android:hint="Phnom Penh/Siem Reap/Sihaoukville"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="start"
+                android:textSize="20sp"
+                android:textColor="#000000"
+                android:fontFamily="@font/regular"
+                android:text="Type"
+                android:paddingBottom="10dp"/>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:layout_width="55dp"
+                android:layout_height="match_parent"
+                android:background="@drawable/button_filter"
+                android:fontFamily="@font/regular"
+                android:gravity="center"
+                android:text="Any"
+                android:textColor="#FFFCFC"
+                android:textSize="12sp" />
+            <Button
+                android:layout_marginStart="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="12sp"
+                android:textColor="#FFFCFC"
+                android:gravity="center"
+                android:background="@drawable/button_filter"
+                android:fontFamily="@font/regular"
+                android:text="Apartment"/>
+            <Button
+                android:layout_marginStart="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="12sp"
+                android:textColor="#FFFCFC"
+                android:gravity="center"
+                android:background="@drawable/button_filter"
+                android:fontFamily="@font/regular"
+                android:text="Room"/>
+
+            <Button
+                android:layout_marginStart="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="12sp"
+                android:textColor="#FFFCFC"
+                android:gravity="center"
+                android:background="@drawable/button_filter"
+                android:fontFamily="@font/regular"
+                android:text="House"/>
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="20dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="start"
+                android:textSize="20sp"
+                android:textColor="#000000"
+                android:fontFamily="@font/regular"
+                android:text="Price"
+                android:paddingBottom="10dp"/>
+            <Spinner
+                android:id="@+id/filterSpinner"
+                android:layout_width="match_parent"
+                android:layout_height="40dp" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="start"
+                android:textSize="20sp"
+                android:textColor="#000000"
+                android:fontFamily="@font/regular"
+                android:text="Bedrooms"
+                android:paddingBottom="10dp"/>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:layout_width="55dp"
+                android:layout_height="match_parent"
+                android:background="@drawable/button_filter"
+                android:fontFamily="@font/regular"
+                android:gravity="center"
+                android:text="Any"
+                android:textColor="#FFFCFC"
+                android:textSize="16sp" />
+
+            <Button
+                android:layout_marginStart="10dp"
+                android:layout_width="55dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/button_filter"
+                android:fontFamily="@font/regular"
+                android:gravity="center"
+                android:text="1"
+                android:textColor="#FFFCFC"
+                android:textSize="16sp" />
+
+            <Button
+                android:layout_marginStart="10dp"
+                android:layout_width="55dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/button_filter"
+                android:fontFamily="@font/regular"
+                android:gravity="center"
+                android:text="2"
+                android:textColor="#FFFCFC"
+                android:textSize="16sp" />
+
+            <Button
+                android:layout_marginStart="10dp"
+                android:layout_width="55dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/button_filter"
+                android:fontFamily="@font/regular"
+                android:gravity="center"
+                android:text="3"
+                android:textColor="#FFFCFC"
+                android:textSize="16sp" />
+
+            <Button
+                android:layout_marginStart="10dp"
+                android:layout_width="55dp"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:textColor="#FFFCFC"
+                android:gravity="center"
+                android:background="@drawable/button_filter"
+                android:fontFamily="@font/regular"
+                android:text="4"/>
+        </LinearLayout>
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="start"
+                android:textSize="20sp"
+                android:textColor="#000000"
+                android:fontFamily="@font/regular"
+                android:text="Bathrooms"
+                android:paddingBottom="10dp"/>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp"
+            android:gravity="start">
+
+            <Button
+                android:id="@+id/buttonAnyBR"
+                android:layout_width="55dp"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:textColor="#FFFCFC"
+                android:gravity="center"
+                android:background="@drawable/button_filter"
+                android:fontFamily="@font/regular"
+                android:text="Any"/>
+            <Button
+                android:id="@+id/button1BR"
+                android:layout_marginStart="10dp"
+                android:layout_width="55dp"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:textColor="#FFFCFC"
+                android:gravity="center"
+                android:background="@drawable/button_filter"
+                android:fontFamily="@font/regular"
+                android:text="1"/>
+            <Button
+                android:id="@+id/button2BR"
+                android:layout_marginStart="10dp"
+                android:layout_width="55dp"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:textColor="#FFFCFC"
+                android:gravity="center"
+                android:background="@drawable/button_filter"
+                android:fontFamily="@font/regular"
+                android:text="2"/>
+
+            <Button
+                android:id="@+id/button3BR"
+                android:layout_marginStart="10dp"
+                android:layout_width="55dp"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:textColor="#FFFCFC"
+                android:gravity="center"
+                android:background="@drawable/button_filter"
+                android:fontFamily="@font/regular"
+                android:text="3"/>
+            <Button
+                android:id="@+id/button4BR"
+                android:layout_marginStart="10dp"
+                android:layout_width="55dp"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:textColor="#FFFCFC"
+                android:gravity="center"
+                android:background="@drawable/button_filter"
+                android:fontFamily="@font/regular"
+                android:text="4"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center">
+            <Button
+                android:layout_width="370dp"
+                android:layout_height="match_parent"
+                android:textSize="16sp"
+                android:background="@drawable/button_filter"
+                android:textColor="#FFFFFF"
+                android:fontFamily="@font/regular"
+                android:text="Show 10 Properties"
+                android:paddingBottom="10dp"/>
+        </LinearLayout>
+    </LinearLayout>
+
+
+</LinearLayout>
