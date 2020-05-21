@@ -3,7 +3,8 @@ package com.example.booking_place;
 public class Model {
 
     private String title, description, price;
-    private int image;
+    private int imageId;
+    private String image;
 
     public String getTitle() {
         return title;
@@ -29,11 +30,19 @@ public class Model {
         this.price = price;
     }
 
-    public int getImage() {
+    public String getImage() {
         return image;
     }
 
-    public void setImage(int image) {
+    public void setImage(String image) {
         this.image = image;
+    }
+
+    public int getImageId() {
+        return imageId;
+    }
+
+    public void setImageId(int imageId) {
+        this.imageId = imageId;
     }
 }

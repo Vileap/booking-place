@@ -41,7 +41,6 @@ public class MainActivity extends Activity {
     private FirebaseAuth mAuth;
     private FirebaseFirestore db;
     EditText editText;
-    RecyclerView recyclerView;
 
 
     @Override
@@ -63,6 +62,20 @@ public class MainActivity extends Activity {
                 startActivity(intent);
             }
         });
+
+
+        Button viewButton2;
+        viewButton2 = findViewById(R.id.viewButton2);
+        viewButton2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent2 = new Intent(v.getContext(), PlaceActivity.class);
+                startActivity(intent2);
+            }
+        });
+
+
+        //send Query to FirebaseDatabase
         mAuth = FirebaseAuth.getInstance();
 
         db = FirebaseFirestore.getInstance();
@@ -74,11 +87,14 @@ public class MainActivity extends Activity {
                 .build();
         db.setFirestoreSettings(settings);
 
-        final RecyclerView recyclerView;
+        final RecyclerView recyclerView, recyclerView2;
         final Adapter[] adapter = new Adapter[1];
 
         recyclerView = findViewById(R.id.recyclerHome);
+        recyclerView2 = findViewById(R.id.recyclerHome2);
         recyclerView.setLayoutManager(new LinearLayoutManager(this, RecyclerView.HORIZONTAL
+                , false));
+        recyclerView2.setLayoutManager(new LinearLayoutManager(this, RecyclerView.HORIZONTAL
                 , false));
 
 
@@ -95,13 +111,44 @@ public class MainActivity extends Activity {
                                 listTopPlace.add(
                                         newPlace(objectResponse.get("name").toString(),
                                                 objectResponse.get("address").toString(),
-                                                "$" + objectResponse.get("price").toString() +" per Night")
+                                                "$" + objectResponse.get("price").toString() +" per Night",
+                                                objectResponse.get("image").toString()
+                                                )
                                 );
 
                             }
 
-                            adapter[0] = new Adapter(getApplicationContext(), listTopPlace);
+                            adapter[0] = new Adapter(MainActivity.this, listTopPlace);
                             recyclerView.setAdapter(adapter[0]);
+
+                        } else {
+                            Log.w(TAG, "Error getting documents.", task.getException());
+                        }
+                    }
+                });
+
+        db.collection("places")
+                .get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        if (task.isSuccessful()) {
+                            for (QueryDocumentSnapshot document : task.getResult())
+                            {
+                                Map<String, Object> objectResponse = document.getData();
+                                Log.d(TAG, document.getId() + " => " + document.getData());
+                                listTopPlace.add(
+                                        newPlace(objectResponse.get("name").toString(),
+                                                objectResponse.get("address").toString(),
+                                                "$" + objectResponse.get("price").toString() +" per Night",
+                                                objectResponse.get("image").toString()
+                                                )
+                                );
+
+                            }
+
+                            adapter[0] = new Adapter(MainActivity.this, listTopPlace);
+                            recyclerView2.setAdapter(adapter[0]);
 
                         } else {
                             Log.w(TAG, "Error getting documents.", task.getException());
@@ -112,49 +159,17 @@ public class MainActivity extends Activity {
 
     }
 
-    public Model newPlace (String placeTitle, String placePrice, String address) {
+    public Model newPlace (String placeTitle, String placePrice, String address, String imageURL) {
 
         Model m = new Model();
         m.setTitle(placeTitle);
         m.setDescription(placePrice);
         m.setPrice(address);
-        m.setImage(R.drawable.r1room);
+         m.setImage(imageURL);
 
         return m;
     }
 
 
-    private ArrayList<Model> getMyList(){
-        ArrayList<Model> models = new ArrayList<>();
 
-        Model m = new Model();
-        m.setTitle("R1 Room");
-        m.setDescription("Phnom Penh");
-        m.setPrice("$11 per Night");
-        m.setImage(R.drawable.r1room);
-        models.add(m);
-
-        m = new Model();
-        m.setTitle("Bright Studio");
-        m.setDescription("Phnom Penh");
-        m.setPrice("$24 per Night");
-        m.setImage(R.drawable.brightstudio);
-        models.add(m);
-
-        m = new Model();
-        m.setTitle("Beautiful Villa 1");
-        m.setDescription("Siem Reap");
-        m.setPrice("$11 per Night");
-        m.setImage(R.drawable.villa_room1);
-        models.add(m);
-
-        m = new Model();
-        m.setTitle("Carolina");
-        m.setDescription("Siem Reap");
-        m.setPrice("$13 per Night");
-        m.setImage(R.drawable.carolina_room);
-        models.add(m);
-
-        return models;
-    }
 }

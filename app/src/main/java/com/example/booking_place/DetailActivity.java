@@ -5,6 +5,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.booking_place.model.Place;
@@ -22,10 +25,19 @@ public class DetailActivity extends Activity {
     FirebaseConnector firebaseConnector;
     TextView textViewPrice, textViewLocationName, textViewTitleName, textViewGuestNum, textViewBedNum,textViewBathNum, textViewType, textViewDetail, textViewPlaceDescription;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail);
+
+        ImageButton imageButton = findViewById(R.id.backMainDetail);
+        imageButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
 
         // View
         textViewPrice = findViewById(R.id.placePrice);

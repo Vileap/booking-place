@@ -85,8 +85,9 @@
                         android:gravity="center"
                         android:fontFamily="@font/regular"
                         android:textStyle="bold"
-                        android:textSize="16sp"
-                        android:text="Place to Rent"/>
+                        android:textSize="18sp"
+                        android:textColor="#000000"
+                        android:text="Hottest Place"/>
                 </LinearLayout>
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -118,6 +119,56 @@
                     android:layout_height="match_parent"
                     android:scrollbars="horizontal"/>
             </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="20dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:fontFamily="@font/regular"
+                        android:textStyle="bold"
+                        android:textSize="18sp"
+                        android:textColor="#000000"
+                         android:text="Place for Rent"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="end">
+                    <Button
+                        android:id="@+id/viewButton2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="40dp"
+                        android:gravity="center"
+                        android:textSize="18sp"
+                        android:textColor="#005b96"
+                        android:text="View All"
+                        android:background="?android:attr/selectableItemBackground"/>
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerHome2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scrollbars="horizontal"/>
         </LinearLayout>
 
     </LinearLayout>
