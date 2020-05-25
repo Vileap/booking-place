@@ -21,4 +21,6 @@ public class MyHolder extends RecyclerView.ViewHolder {
         this.mDesc = itemView.findViewById(R.id.locationText);
         this.mPrice = itemView.findViewById(R.id.locationPrice);
     }
+
+
 }

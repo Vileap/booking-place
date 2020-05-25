@@ -35,6 +35,8 @@ public class Adapter extends RecyclerView.Adapter<MyHolder> {
         this.models = models;
     }
 
+
+
     @NonNull
     @Override
     public MyHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -99,4 +101,6 @@ public class Adapter extends RecyclerView.Adapter<MyHolder> {
     public int getItemCount() {
         return models.size();
     }
+
+
 }
