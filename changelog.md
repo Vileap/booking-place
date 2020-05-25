@@ -15,3 +15,7 @@
 ## Week 10
   - working on retrieve all the image and text information from firebase 
   - Resize all image to make sure it look great on each screen activity
+  
+## Week 11
+  - 
+  -
