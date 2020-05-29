@@ -15,3 +15,7 @@
 ## Week 10
   - working on retrieve all the image and text information from firebase 
   - Resize all image to make sure it look great on each screen activity
+
+## Week 11 
+  - Update Recyclerview to enable to click it to the next screen "Details Activity".
+  - In Main Activity, on EditText "search" you can type the location name like Phnom Penh, Siem Reap and Kampot and when you click the search button they will take you to next the list screen "Place Activity".
