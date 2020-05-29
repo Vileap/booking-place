@@ -2,20 +2,27 @@ package com.example.booking_place;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.media.Image;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.text.Layout;
 import android.util.Log;
+import android.view.Display;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.UiThread;
 import androidx.recyclerview.widget.RecyclerView;
+
+import org.w3c.dom.Text;
 
 import java.io.BufferedInputStream;
 import java.io.IOException;
@@ -24,18 +31,21 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.List;
 
 public class Adapter extends RecyclerView.Adapter<MyHolder> {
 
     private Activity activity;
     private ArrayList<Model> models;
+    private AdapterView.OnItemClickListener onItemClickListener;
+    private Context applicationContext;
 
-    public Adapter(Activity c, ArrayList<Model> models) {
+
+    public Adapter(Activity c, ArrayList<Model> models, Context appContext) {
         this.activity = c;
         this.models = models;
+        this.applicationContext = appContext;
     }
-
-
 
     @NonNull
     @Override
@@ -52,6 +62,16 @@ public class Adapter extends RecyclerView.Adapter<MyHolder> {
         String paths = models.get(position).getImage();
         new DownloadTask(holder.mImageView).execute(stringToURL(paths));
 
+        holder.mImageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.i("LOG65", holder.getAdapterPosition()+"");
+                Intent intent = new Intent(applicationContext, DetailActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                intent.putExtra("PLACEID", models.get(holder.getAdapterPosition()).getPlaceId());
+                applicationContext.startActivity(intent);
+            }
+        });
 
     }
 
@@ -101,6 +121,8 @@ public class Adapter extends RecyclerView.Adapter<MyHolder> {
     public int getItemCount() {
         return models.size();
     }
+
+
 
 
 }

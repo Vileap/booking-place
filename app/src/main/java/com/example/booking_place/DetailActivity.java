@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
@@ -24,6 +25,7 @@ public class DetailActivity extends Activity {
 
     FirebaseConnector firebaseConnector;
     TextView textViewPrice, textViewLocationName, textViewTitleName, textViewGuestNum, textViewBedNum,textViewBathNum, textViewType, textViewDetail, textViewPlaceDescription;
+    ImageView backgroundImage;
 
 
     @Override
@@ -49,27 +51,34 @@ public class DetailActivity extends Activity {
         textViewType = findViewById(R.id.placeType);
         textViewDetail =findViewById(R.id.placeDetails);
         textViewPlaceDescription = findViewById(R.id.placeDescription);
+        backgroundImage = findViewById(R.id.backgroundDetail);
 
         //conect to Firebase
         firebaseConnector = new FirebaseConnector(FirebaseAuth.getInstance(), FirebaseFirestore.getInstance());
 
+        Intent intent = getIntent();
+        Bundle bundle  = intent.getExtras();
 
-        //Method record Detail
-        firebaseConnector.getPlaceDetailById("aNNKw5HAwmCz0SnioKWG").get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
-            @Override
-            public void onSuccess(DocumentSnapshot documentSnapshot) {
-                Map<String, Object> objectResponse = documentSnapshot.getData();
-                textViewTitleName.setText(objectResponse.get("name").toString());
-                textViewPrice.setText("$" + objectResponse.get("price").toString() + " per Night");
-                textViewLocationName.setText(objectResponse.get("address").toString());
-                textViewGuestNum.setText(objectResponse.get("guest").toString() + "  Guest");
-                textViewBedNum.setText(objectResponse.get("bedroom").toString() + "  Bed");
-                textViewBathNum.setText(objectResponse.get("bathroom").toString() + "  Bathroom");
-                textViewType.setText(objectResponse.get("type").toString());
-                textViewDetail.setText(objectResponse.get("details").toString());
-                textViewPlaceDescription.setText(objectResponse.get("description").toString());
-            }
-        });
+        if (bundle != null) {
+            String placeId = (String) bundle.get("PLACEID");
+
+            firebaseConnector.getPlaceDetailById(placeId).get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+                @Override
+                public void onSuccess(DocumentSnapshot documentSnapshot) {
+                    Map<String, Object> objectResponse = documentSnapshot.getData();
+                    //backgroundImage.setImageBitmap(objectResponse.get("image").toString());
+                    textViewTitleName.setText(objectResponse.get("name").toString());
+                    textViewPrice.setText("$" + objectResponse.get("price").toString() + " per Night");
+                    textViewLocationName.setText(objectResponse.get("address").toString());
+                    textViewGuestNum.setText(objectResponse.get("guest").toString() + "  Guest");
+                    textViewBedNum.setText(objectResponse.get("bedroom").toString() + "  Bed");
+                    textViewBathNum.setText(objectResponse.get("bathroom").toString() + "  Bathroom");
+                    textViewType.setText(objectResponse.get("type").toString());
+                    textViewDetail.setText(objectResponse.get("details").toString());
+                    textViewPlaceDescription.setText(objectResponse.get("description").toString());
+                }
+            });
+        }
 
     }
 }

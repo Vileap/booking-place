@@ -35,6 +35,11 @@ public class FilterActivity extends Activity implements AdapterView.OnItemSelect
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_filter);
 
+
+        SegmentedButtonGroup segmentedButtonGroup = (SegmentedButtonGroup) findViewById(R.id.buttonGroup_rounded);
+        //segmentedButtonGroup.setOnClick
+        //segmentedButtonGroup.setPosition(2, 0);
+
         ImageButton backButton = findViewById(R.id.backMainFilter);
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override

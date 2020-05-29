@@ -16,6 +16,7 @@ import android.view.Display;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 
@@ -34,13 +35,15 @@ import java.util.List;
 import java.util.Map;
 
 
-public class MainActivity extends Activity {
+public class MainActivity extends Activity implements View.OnClickListener {
 
     private static final String TAG = "MainActivity";
 
     private FirebaseAuth mAuth;
     private FirebaseFirestore db;
     EditText editText;
+    ImageButton searchPlaceButton;
+    EditText textSearch;
 
 
     @Override
@@ -51,7 +54,10 @@ public class MainActivity extends Activity {
 
         Button viewButton;
         viewButton = findViewById(R.id.viewButton);
+        searchPlaceButton = findViewById(R.id.searchPlaceButton);
+        textSearch = findViewById(R.id.searchLocationEditText);
 
+        searchPlaceButton.setOnClickListener(this);
         final ArrayList<Model> listTopPlace = new ArrayList<Model>();
 
 
@@ -112,13 +118,14 @@ public class MainActivity extends Activity {
                                         newPlace(objectResponse.get("name").toString(),
                                                 objectResponse.get("address").toString(),
                                                 "$" + objectResponse.get("price").toString() +" per Night",
-                                                objectResponse.get("image").toString()
+                                                objectResponse.get("image").toString(),
+                                                document.getId()
                                                 )
                                 );
 
                             }
 
-                            adapter[0] = new Adapter(MainActivity.this, listTopPlace);
+                            adapter[0] = new Adapter(MainActivity.this, listTopPlace, getApplicationContext());
                             recyclerView.setAdapter(adapter[0]);
 
                         } else {
@@ -141,13 +148,15 @@ public class MainActivity extends Activity {
                                         newPlace(objectResponse.get("name").toString(),
                                                 objectResponse.get("address").toString(),
                                                 "$" + objectResponse.get("price").toString() +" per Night",
-                                                objectResponse.get("image").toString()
+                                                objectResponse.get("image").toString(),
+                                                document.getId()
                                                 )
                                 );
 
                             }
 
-                            adapter[0] = new Adapter(MainActivity.this, listTopPlace);
+                            adapter[0] = new Adapter(MainActivity.this, listTopPlace, getApplicationContext());
+                            adapter[0] = new Adapter(MainActivity.this, listTopPlace, getApplicationContext());
                             recyclerView2.setAdapter(adapter[0]);
 
                         } else {
@@ -159,17 +168,26 @@ public class MainActivity extends Activity {
 
     }
 
-    public Model newPlace (String placeTitle, String placePrice, String address, String imageURL) {
+
+
+    public Model newPlace (String placeTitle, String placePrice, String address, String imageURL, String placeId) {
 
         Model m = new Model();
         m.setTitle(placeTitle);
         m.setDescription(placePrice);
         m.setPrice(address);
-         m.setImage(imageURL);
+        m.setImage(imageURL);
+        m.setPlaceId(placeId);
 
         return m;
     }
 
-
-
+    @Override
+    public void onClick(View v) {
+        if (v.getId() == R.id.searchPlaceButton) {
+            Intent intent = new Intent(this, PlaceActivity.class);
+            intent.putExtra("TEXTSEARCH", textSearch.getText().toString());
+            startActivity(intent);
+        }
+    }
 }

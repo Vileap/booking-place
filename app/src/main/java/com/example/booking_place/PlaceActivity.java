@@ -11,6 +11,7 @@ import android.media.Image;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ImageButton;
 
@@ -63,45 +64,54 @@ public class PlaceActivity extends Activity {
             }
         });
 
-        //send Query to FirebaseDatabase
-        mAuth = FirebaseAuth.getInstance();
+        Intent intent = getIntent();
+        Bundle bundle  = intent.getExtras();
 
-        db = FirebaseFirestore.getInstance();
-        // [END get_firestore_instance]
+        if (bundle != null) {
 
-        // [START set_firestore_settings]
-        FirebaseFirestoreSettings settings = new FirebaseFirestoreSettings.Builder()
-                .setPersistenceEnabled(true)
-                .build();
-        db.setFirestoreSettings(settings);
+            String textSearch = (String) bundle.get("TEXTSEARCH");
 
-        db.collection("places")
-                .get()
-                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-                    @Override
-                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                        if(task.isSuccessful()){
-                            for (QueryDocumentSnapshot document : task.getResult())
-                            {
-                                Map<String, Object> objectResponse = document.getData();
-                                Log.d(TAG, document.getId() + " =>" + document.getData());
-                                listTopPlace.add(
-                                        newPlace(objectResponse.get("name").toString(),
-                                                objectResponse.get("address").toString(),
-                                                "$" + objectResponse.get("price").toString() +" per Night",
-                                                objectResponse.get("image").toString()
-                                                )
-                                );
+            mAuth = FirebaseAuth.getInstance();
+
+            db = FirebaseFirestore.getInstance();
+            // [END get_firestore_instance]
+
+            // [START set_firestore_settings]
+            FirebaseFirestoreSettings settings = new FirebaseFirestoreSettings.Builder()
+                    .setPersistenceEnabled(true)
+                    .build();
+            db.setFirestoreSettings(settings);
+
+            db.collection("places")
+                    .whereEqualTo("address", textSearch)
+                    .get()
+                    .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                        @Override
+                        public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                            if(task.isSuccessful()){
+                                for (QueryDocumentSnapshot document : task.getResult())
+                                {
+                                    Map<String, Object> objectResponse = document.getData();
+                                    Log.d(TAG, document.getId() + " =>" + document.getData());
+                                    listTopPlace.add(
+                                            newPlace(objectResponse.get("name").toString(),
+                                                    objectResponse.get("address").toString(),
+                                                    "$" + objectResponse.get("price").toString() +" per Night",
+                                                    objectResponse.get("image").toString()
+                                            )
+                                    );
+                                }
+
+                                adapter[0] = new Adapter(PlaceActivity.this, listTopPlace, getApplicationContext());
+                                recyclerView.setAdapter(adapter[0]);
+                            } else {
+                                Log.w(TAG, "error getting documents", task.getException());
                             }
-
-                            adapter[0] = new Adapter(PlaceActivity.this, listTopPlace);
-                            recyclerView.setAdapter(adapter[0]);
-                        } else {
-                            Log.w(TAG, "error getting documents", task.getException());
                         }
-                    }
-                });
+                    });
 
+        }
+            //send Query to FirebaseDatabase
     }
 
     private ArrayList<Model> getMyList(){

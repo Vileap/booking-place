@@ -2,7 +2,7 @@ package com.example.booking_place;
 
 public class Model {
 
-    private String title, description, price;
+    private String title, description, price, placeId;
     private int imageId;
     private String image;
 
@@ -24,6 +24,14 @@ public class Model {
 
     public String getPrice() {
         return price;
+    }
+
+    public String getPlaceId() {
+        return placeId;
+    }
+
+    public void setPlaceId(String placeId) {
+        this.placeId = placeId;
     }
 
     public void setPrice(String price) {

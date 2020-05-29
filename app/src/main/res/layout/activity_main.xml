@@ -28,7 +28,7 @@
                 android:padding="2dp"
                 android:text="Find your Booking"
                 android:textColor="#fffbfb"
-                android:textSize="30sp"
+                android:textSize="32sp"
                 android:textStyle="bold"/>
 
 
@@ -39,8 +39,8 @@
                 android:padding="20dp">
 
                 <EditText
-                    android:id="@+id/searchLocation"
-                    android:layout_width="250dp"
+                    android:id="@+id/searchLocationEditText"
+                    android:layout_width="229dp"
                     android:layout_height="50dp"
                     android:layout_gravity="center"
                     android:background="@drawable/rounded_text"
@@ -55,6 +55,7 @@
                     android:paddingLeft="10dp">
 
                     <ImageButton
+                        android:id="@+id/searchPlaceButton"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:background="@null"
