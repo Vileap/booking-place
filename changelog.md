@@ -18,4 +18,11 @@
 
 ## Week 11 
   - Update Recyclerview to enable to click it to the next screen "Details Activity".
-  - In Main Activity, on EditText "search" you can type the location name like Phnom Penh, Siem Reap and Kampot and when you click the search button they will take you to next the list screen "Place Activity".
+  - In Main Activity, on EditText "search" you can type the location name like Phnom Penh, Siem Reap, Kampot, Kep and Preah Sihanouk and when you click the search button they will take you to next the list screen "Place Activity".
+  - Fixed th recylerView on PlaceActivity or List of place: when you click on each place, it will take you to details screen.
+
+## Week 12
+  - Add more feature on details screen: CalendarView and Book button.
+  - Adding new Screen: Sign In and Book screen
+  - In Sign in screen: you need to sign using my email: vileapvong@gmail.com  && password: 12345
+  
