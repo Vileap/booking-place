@@ -63,13 +63,19 @@
 
         </LinearLayout>
 
+
     </LinearLayout>
 
+    <View
+        android:layout_width="400dp"
+        android:layout_height="1dp"
+        android:background="@android:color/black" />
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="176dp"
         android:layout_weight="1"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:layout_marginBottom="5dp">
 
         <ImageView
             android:id="@+id/backgroundDetail"
@@ -78,8 +84,6 @@
             android:src="@drawable/ic_loading" />
 
     </LinearLayout>
-
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -99,7 +103,7 @@
                     android:fontFamily="@font/regular"
                     android:textStyle="bold"
                     android:textColor="#000000"
-                    android:textSize="18sp"
+                    android:textSize="20sp"
                     android:text="Title Name"
                     android:id="@+id/placeTitleName"/>
             </LinearLayout>
@@ -131,10 +135,9 @@
     </LinearLayout>
 
     <View
-        android:layout_width="fill_parent"
-        android:layout_height="0.5dip"
-        android:background="#B05F5C5C" />
-
+        android:layout_width="400dp"
+        android:layout_height="1dp"
+        android:background="@android:color/black" />
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -231,43 +234,95 @@
                 android:text="Room type"/>
         </LinearLayout>
     </LinearLayout>
+
     <View
-        android:layout_width="fill_parent"
-        android:layout_height="0.5dip"
-        android:background="#B05F5C5C" />
+        android:layout_width="400dp"
+        android:layout_height="1dp"
+        android:background="@android:color/black" />
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="248dp"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:padding="20dp">
+
+            <TextView
+                android:id="@+id/placeDetails"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/regular"
+                android:text="Place Details"
+                android:textColor="#000000"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/placeDescription"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginBottom="8dp"
+                android:fontFamily="@font/regular"
+                android:lineSpacingExtra="5dp"
+                android:maxLines="20"
+                android:text="Descrption of place"
+                android:textSize="16sp"
+                android:scrollbars="vertical"/>
+
+        </LinearLayout>
+    <View
+        android:layout_width="400dp"
+        android:layout_height="1dp"
+        android:background="@android:color/black" />
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="277dp"
-        android:layout_weight="1"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
         android:padding="20dp">
 
         <TextView
-            android:id="@+id/placeDetails"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/regular"
-            android:text="Place Details"
-            android:textColor="#000000"
-            android:textSize="18sp"
-            android:textStyle="bold" />
-
-        <TextView
-            android:id="@+id/placeDescription"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="8dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginRight="8dp"
-            android:layout_marginBottom="8dp"
-            android:fontFamily="@font/regular"
-            android:lineSpacingExtra="5dp"
-            android:maxLines="20"
-            android:text="Descrption of place"
-            android:textSize="16sp" />
+            android:text="Booking Date"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:textColor="#000000"
+            android:gravity="center"
+            android:textAlignment="center"/>
+        <CalendarView
+            android:id="@+id/calenderView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
 
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Number of Guest"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:textColor="#000000"
+            android:textSize="18sp"
+            android:textStyle="bold"/>
 
+        <EditText
+            android:id="@+id/editText"
+            android:layout_width="156dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"/>
+
+        <Button
+            android:id="@+id/CalenderConfirmButton"
+            android:layout_width="125dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="#6CADF8"
+            android:onClick="sendMessage"
+            android:text="Click to book"
+            android:textColor="#FFFFFF" />
     </LinearLayout>
 
 </LinearLayout>

@@ -18,6 +18,7 @@ import android.widget.ImageButton;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreSettings;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
@@ -67,13 +68,16 @@ public class PlaceActivity extends Activity {
         Intent intent = getIntent();
         Bundle bundle  = intent.getExtras();
 
+        mAuth = FirebaseAuth.getInstance();
+
+        db = FirebaseFirestore.getInstance();
+
+
+
         if (bundle != null) {
 
             String textSearch = (String) bundle.get("TEXTSEARCH");
 
-            mAuth = FirebaseAuth.getInstance();
-
-            db = FirebaseFirestore.getInstance();
             // [END get_firestore_instance]
 
             // [START set_firestore_settings]
@@ -82,9 +86,41 @@ public class PlaceActivity extends Activity {
                     .build();
             db.setFirestoreSettings(settings);
 
-            db.collection("places")
-                    .whereEqualTo("address", textSearch)
-                    .get()
+            if(textSearch != "") {
+                db.collection("places").whereEqualTo("address", textSearch).get()
+                        .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                            @Override
+                            public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                                if(task.isSuccessful()){
+                                    for (QueryDocumentSnapshot document : task.getResult())
+                                    {
+                                        Map<String, Object> objectResponse = document.getData();
+                                        Log.d(TAG, document.getId() + " =>" + document.getData());
+                                        listTopPlace.add(
+                                                newPlace(objectResponse.get("name").toString(),
+                                                        objectResponse.get("address").toString(),
+                                                        "$" + objectResponse.get("price").toString() +" per Night",
+                                                        objectResponse.get("image").toString(),
+                                                        document.getId()
+
+
+                                                )
+                                        );
+                                    }
+
+                                    adapter[0] = new Adapter(PlaceActivity.this, listTopPlace, getApplicationContext());
+                                    recyclerView.setAdapter(adapter[0]);
+                                } else {
+                                    Log.w(TAG, "error getting documents", task.getException());
+                                }
+                            }
+                        });
+            }
+
+        }
+
+        else {
+            db.collection("places").get()
                     .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                         @Override
                         public void onComplete(@NonNull Task<QuerySnapshot> task) {
@@ -97,7 +133,8 @@ public class PlaceActivity extends Activity {
                                             newPlace(objectResponse.get("name").toString(),
                                                     objectResponse.get("address").toString(),
                                                     "$" + objectResponse.get("price").toString() +" per Night",
-                                                    objectResponse.get("image").toString()
+                                                    objectResponse.get("image").toString(),
+                                                    document.getId()
                                             )
                                     );
                                 }
@@ -109,8 +146,8 @@ public class PlaceActivity extends Activity {
                             }
                         }
                     });
-
         }
+
             //send Query to FirebaseDatabase
     }
 
@@ -119,13 +156,14 @@ public class PlaceActivity extends Activity {
         return models;
     }
 
-    public Model newPlace (String placeTitle, String placePrice, String address, String imageURL) {
+    public Model newPlace (String placeTitle, String placePrice, String address, String imageURL, String placeId) {
 
         Model m = new Model();
         m.setTitle(placeTitle);
         m.setDescription(placePrice);
         m.setPrice(address);
         m.setImage(imageURL);
+        m.setPlaceId(placeId);
 
         return m;
     }

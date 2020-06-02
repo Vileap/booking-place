@@ -44,6 +44,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
     EditText editText;
     ImageButton searchPlaceButton;
     EditText textSearch;
+    Button logoutButton;
 
 
     @Override
@@ -79,6 +80,15 @@ public class MainActivity extends Activity implements View.OnClickListener {
                 startActivity(intent2);
             }
         });
+
+        logoutButton = findViewById(R.id.logOutButton);
+        logoutButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
+
 
 
         //send Query to FirebaseDatabase
