@@ -23,4 +23,8 @@ This App is for Assignmnet 2 in SIT305 Android and IOS Mobile Programming
  - Image and all details are store in Firebase cloud firestore.
   <img width="977" alt="firebase" src="https://user-images.githubusercontent.com/55390236/83537048-3f6e0c00-a51e-11ea-9710-27a350859ede.png">
   
+ - On filter screen, i used the library or api on segmented button. https://github.com/addisonElliott/SegmentedButton
+ 
+ # 
+  
   
